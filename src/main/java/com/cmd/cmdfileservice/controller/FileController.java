@@ -38,6 +38,8 @@ public class FileController {
 
     @DeleteMapping("/remove/{id}")
     public ResponseEntity<String> delete(@PathVariable String id) throws IOException {
+        if (id.equals("6164731c4b6ed22a8e66f19b"))
+            return new ResponseEntity<>("You cannot delete this image", HttpStatus.NOT_ACCEPTABLE);
         return ResponseEntity.ok()
                 .body(fileService.removeFile(id));
     }
